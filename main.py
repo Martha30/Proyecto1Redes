@@ -51,7 +51,7 @@ class Client(slixmpp.ClientXMPP):
       nuevo = input("Ingrese el Usuario: ")
       self.send_presence_subscription(pto=nuevo)
       mensaje=" Lloremos por el proyecto"
-      self.send_message(mto=nuevo, mbody=mensaje, mtype="chat", mfrom=self.boundjid.bare)
+      self.send_message(para=nuevo, historia=mensaje, tipo="chat", de=self.boundjid.bare)
 
 
     def informacion():
@@ -73,7 +73,7 @@ class Client(slixmpp.ClientXMPP):
     def avisar(emisor, state):
       self.register_plugin("xep_0085")
       message = self.Message()
-      message["chat_state"] = state
+      message["estado"] = state
       message["to"] = emisor
 
       message.send()
@@ -83,7 +83,7 @@ class Client(slixmpp.ClientXMPP):
       canal = input("A quien le deseas enviar un mensaje? ")
       mensaje = input("Mensaje: ")
       self.register_plugin("xep_0085")
-      self.send_message(mto=canal, mbody=mensaje, mtype="chat")
+      self.send_message(para=canal, historia=mensaje, tipo="chat")
       avisar(canal, 'paused')
       print("Envio Exitoso")
 # Here its about the status of the contact
